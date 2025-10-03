@@ -1,2 +1,6 @@
 target 
 .target/
+.claude
+.idea
+error_status.text
+
