@@ -1,0 +1,75 @@
+🔗 Found pyo3 bindings
+🐍 Found CPython 3.13 at /opt/anaconda/bin/python
+📡 Using build options features from pyproject.toml
+   Compiling rust-cuda v0.1.0 (/home/lipplopp/playground/rust-cuda)
+error: multiple unused formatting arguments
+   --> src/lib.rs:266:9
+    |
+265 |         "Neural network forward pass completed with GPU context.\nInput: {{:?}} -> Output: {{:?}}\nTime: {{:.2}}ms",
+    |         ----------------------------------------------------------------------------------------------------------- multiple missing formatting specifiers
+266 |         input_data.shape(), output.shape(), duration
+    |         ^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^  ^^^^^^^^ argument never used
+    |         |                   |
+    |         |                   argument never used
+    |         argument never used
+
+error: argument never used
+   --> src/lib.rs:280:75
+    |
+280 |     results.push(format!("✓ matrixmultiply::dgemm works, result: {{:?}}", result[[0, 0]]));
+    |                          -----------------------------------------------  ^^^^^^^^^^^^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:287:75
+    |
+287 |     results.push(format!("✓ matrixmultiply::sgemm works, result: {{:?}}", result_f32[[0, 0]]));
+    |                          -----------------------------------------------  ^^^^^^^^^^^^^^^^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:292:82
+    |
+292 |     results.push(format!("✓ matrix-vector multiplication works, result: {{:?}}", mv_result[0]));
+    |                          ------------------------------------------------------  ^^^^^^^^^^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:296:80
+    |
+296 |     results.push(format!("✓ 2x2 determinant calculation works, det = {{:.2}}", det));
+    |                          ----------------------------------------------------  ^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:300:80
+    |
+300 |     results.push(format!("✓ manual L2 norm calculation works, norm = {{:.2}}", norm));
+    |                          ----------------------------------------------------  ^^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:305:77
+    |
+305 |         Err(e) => results.push(format!("✗ SciRS2 GPU context failed: {{}}", e)),
+    |                                        -----------------------------------  ^ argument never used
+    |                                        |
+    |                                        formatting specifier missing
+
+error: argument never used
+   --> src/lib.rs:310:76
+    |
+310 |     results.push(format!("✓ ndarray fallback works, result shape: {{:?}}", ndarray_result.shape()));
+    |                          ------------------------------------------------  ^^^^^^^^^^^^^^^^^^^^^^ argument never used
+    |                          |
+    |                          formatting specifier missing
+
+error: could not compile `rust-cuda` (lib) due to 8 previous errors
+💥 maturin failed
+  Caused by: Failed to build a native library through cargo
+  Caused by: Cargo build finished with "exit status: 101": `env -u CARGO PYO3_BUILD_EXTENSION_MODULE="1" PYO3_ENVIRONMENT_SIGNATURE="cpython-3.13-64bit" PYO3_PYTHON="/opt/anaconda/bin/python" PYTHON_SYS_EXECUTABLE="/opt/anaconda/bin/python" "cargo" "rustc" "--features" "pyo3/extension-module" "--message-format" "json-render-diagnostics" "--manifest-path" "/home/lipplopp/playground/rust-cuda/Cargo.toml" "--lib" "--crate-type" "cdylib"`

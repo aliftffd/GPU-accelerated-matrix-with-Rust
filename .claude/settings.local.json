@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo build:*)",
+      "Bash(python test:*)",
+      "Bash(python -c \"import rust_cuda; print(dir(rust_cuda))\")",
+      "Bash(nvidia-smi:*)",
+      "Bash(pip install:*)",
+      "Read(//usr/**)",
+      "Bash(LD_LIBRARY_PATH=/usr/local/lib/ollama:$LD_LIBRARY_PATH python test_gpu.py)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
