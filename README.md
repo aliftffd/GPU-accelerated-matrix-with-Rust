@@ -177,10 +177,6 @@ Contributions are welcome! Areas of interest:
 - Adding more neural network primitives
 - Improving error handling and documentation
 
-## License
-
-[Specify your license here - e.g., MIT, Apache 2.0]
-
 ## Acknowledgments
 
 - Built with [PyO3](https://github.com/PyO3/pyo3) for Rust-Python bindings
